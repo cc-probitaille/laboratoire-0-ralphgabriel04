@@ -1,1 +1,23 @@
-// Vous devez complétéer ce fichier
+@startuml
+skinparam style strictuml
+skinparam defaultfontname Verdana
+skinparam sequence {
+    MessageAlign center
+}
+title RDCU pour redemarrerJeu
+
+participant ":JeuDeDes" as jdd
+participant "joueurs : \n Map<String,Joueur>" as joueurs
+
+-> jdd : redemarrerJeu()
+note right of jdd
+  selon Contrôleur
+  (JeuDeDés est l'objet racine)
+end note
+
+jdd -> joueurs : clear()
+note right of joueurs
+  selon Expert
+end note
+
+@enduml
