@@ -1,9 +1,10 @@
 # Identification de l'étudiant
 
-- <nomComplet1>Entrer votre nom</nomComplet1>
-- <courriel1>Entrer votre courriel</courriel1>
-- <codeMoodle1>Entrer votre code moodle obtenu à partir de Signets, 2 lettres majuscule avec 5 chiffres</codeMoodle1>
-- <githubAccount1>Entrer l'identifiant de votre compte github</githubAccount1>
+- <nomComplet1>Ralph Christian Gabriel</nomComplet1>
+- <courriel1>ralph-christian.gabriel.1@ens.etsmtl.ca
+</courriel1>
+- <codeMoodle1>AU53390</codeMoodle1>
+- <githubAccount1>ralphgabriel04</githubAccount1>
 
 # Squelette pour un API simple dans Node, Express et TypeScript
 
@@ -162,6 +163,10 @@ Voici la même figure, mais sous forme de diagramme de séquence avec l'acteur. 
 
 4. Le Joueur demande à terminer le jeu.
 1. ~~Le Système affiche un tableau de bord avec les noms des joueurs et le ratio des parties gagnées (nombre de fois gagné / nombre de lancers).~~
+#### Redémarrer
+
+1. Le Joueur demande à redémarrer l'application.
+2. Le Système termine tous les jeux en cours et redémarre l'application.
 
 ### Diagramme de cas d'utilisation
 
