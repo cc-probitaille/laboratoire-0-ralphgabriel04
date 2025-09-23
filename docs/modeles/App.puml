@@ -32,6 +32,7 @@ class JeuDeDes {
     -_joueurs: Map<string, Joueur>
     -_d1: De
     -_d2: De
+    -_d3: De 
     +redemarrerJeu(): string
     +demarrerJeu(nom: string): string
     +jouer(nom: string): string
@@ -58,6 +59,6 @@ class App {
     -routes(): void
 }
 JeuDeDes --> "1" Joueur
-JeuDeDes --> "1" De
+JeuDeDes --> "3" De
 JeuRouter --> "1" JeuDeDes
 @enduml
