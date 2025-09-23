@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "command": "npm start",
+            "name": "Debug",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npm run start:watch",
+            "name": "Debug:Watch",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}

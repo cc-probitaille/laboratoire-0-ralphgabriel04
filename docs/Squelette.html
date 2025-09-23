@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Squelette.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="identification-de-l%C3%A9tudiant">Identification de l'étudiant</h1>
+<ul>
+<li><nomComplet1>Ralph Christian Gabriel</nomComplet1></li>
+<li><courriel1>ralph-christian.gabriel.1@ens.etsmtl.ca
+</courriel1></li>
+<li><codeMoodle1>AU53390</codeMoodle1></li>
+<li><githubAccount1>ralphgabriel04</githubAccount1></li>
+</ul>
+<h1 id="squelette-pour-un-api-simple-dans-node-express-et-typescript">Squelette pour un API simple dans Node, Express et TypeScript</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Ce squelette est proposé pour commencer les projets en LOG210. Il possède les qualités suivantes:</p>
+<ul>
+<li>il est simple pour les débutants en LOG210
+<ul>
+<li>il n'y a pas de framework pour le front-end ni pour la persistance, mais ça n'empêche pas d'ajouter ces dimensions.</li>
+<li>il est seulement <a href="https://devopedia.org/richardson-maturity-model#qst-ans-3">REST niveau 1</a>, mais ça n'empêche pas de modifier l'API pour qu'il soit <a href="https://devopedia.org/richardson-maturity-model#qst-ans-5">REST niveau 3</a>.</li>
+</ul>
+</li>
+<li>il est orienté objet (avec TypeScript)</li>
+<li>il contient des tests pour l'API (avec Jest et Supertest)</li>
+<li>il fait une séparation entre les couches présentation et domaine, selon la méthodologie de conception du cours LOG210 (Larman)</li>
+<li>il fournit une structure (en Bootstrap et Pug) permettant de gérer les connexions d'utilisateur et les vues selon le type d'utilisateur</li>
+<li>il fonctionne sur Windows 10 (et probablement d'autres systèmes d'exploitation avec Node)</li>
+</ul>
+<h2 id="do%C3%B9-vient-lid%C3%A9e-de-base-pour-ce-squelette">D'où vient l'idée de base pour ce squelette?</h2>
+<p>Le code d'origine a été expliqué dans ce <a href="http://mherman.org/blog/2016/11/05/developing-a-restful-api-with-node-and-typescript/#.WB3zyeErJE4">texte de blogue</a>.</p>
+<p>Dans le cadre du cours <a href="https://www.etsmtl.ca/etudes/cours/log210">LOG210 de l'ÉTS</a>, nous utilisons la méthodologie documentée par <a href="http://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns">Craig Larman dans son livre <em>Applying UML and Patterns</em></a>. Ce livre documente beaucoup de principes avec des exemples en Java, qui n'est plus à la mode comme à l'époque où le livre a été écrit.</p>
+<p>Pourtant, il est encore possible de suivre cette méthodologie avec des technologies modernes comme JavaScript, Node.js, surtout en utilisant TypeScript. Cependant, il n'est pas évident de trouver des exemples de ces technologies qui respectent les éléments clés de la méthodologie de Larman: la séparation des couches (présentation, domaine) avec les opérations système et les classes du domaine.</p>
+<p>Ce squelette montre ces aspects importants, dans le contexte du <em>Jeu de dés</em>, qui est l'exemple utilisé dans le chapitre 1 du livre du cours. Nous avons modifié l'exemple pour le rendre un peu plus complexe (plusieurs opérations système). Les diagrammes (faits avec <a href="https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github">PlantUML</a>) sont présentés plus bas dans la partie Artefacts.</p>
+<p>L'éditeur <a href="https://code.visualstudio.com/">Visual Studio Code</a> est très utile, mais n'est pas nécessaire avec ce squelette.</p>
+<h2 id="voulez-vous-utiliser-ce-squelette">Voulez-vous utiliser ce squelette?</h2>
+<ol>
+<li>
+<p>(Créer une fork et) Cloner</p>
+</li>
+<li>
+<p>Installer <a href="https://nodejs.org/en/download/">node</a></p>
+</li>
+<li>
+<p>Installer les dépendances node - <code>npm install</code></p>
+</li>
+<li>
+<p>Compiler - <code>npm run build</code></p>
+</li>
+<li>
+<p>Lancer serveur de développement - <code>npm start</code></p>
+</li>
+<li>
+<p>Accéder à la page template de l'application - <a href="http://localhost:3000">http://localhost:3000</a></p>
+<details>
+  <summary>Regarder exemple de la fonctionnalité</summary>
+  <p>
+<p><img src="https://user-images.githubusercontent.com/7606540/148088563-e4f7d26a-033b-4a77-8a9a-e56758dad1ee.gif" alt="GIF animé de la fonctionnalité de l'application Jeu de Dés"></p>
+ </p>
+</details>
+</li>
+<li>
+<p>Lancer les tests (pas besoin de lancer le serveur d'abord) - <code>npm test</code></p>
+</li>
+</ol>
+<h2 id="d%C3%A9veloppement-pilot%C3%A9-par-les-tests-tdd">Développement piloté par les tests (TDD)</h2>
+   <details>
+     <summary>Plus de détails</summary><p>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-python-flask/master/docs/tdd.puml&amp;fmt=svg" alt="États du TDD"></p>
+<p>Le développement piloté par les tests (Test-Driven Development, TDD) est une façon de développer des logiciels en commençant par les tests. Il y a plusieurs avantages de cette façon de faire et ce squelette supporte la méthodologie.</p>
+<p>Le TDD suit un cycle particulier, comme vous pouvez voir à l'image plus haut:</p>
+<ol>
+<li>Écrire un nouveau test</li>
+<li>Exécuter le test (qui échouera)</li>
+<li>Écrire juste assez de code pour faire passer le test</li>
+<li>Refactoriser le code (et les tests) au besoin, et recommencer</li>
+</ol>
+<blockquote>
+<p>Il y a des tests pour tous les appels de l'API du serveur web, mais on devrait également faire des tests pour les autres classes (par exemple, des tests unitaires des classes du domaine).</p>
+</blockquote>
+  </p>
+  </details>
+<h2 id="support-pour-d%C3%A9bogage">Support pour débogage</h2>
+   <details>
+     <summary>Plus de détails</summary><p>
+<p>Ce squelette offre la possibilité de déboguer le code du serveur à l'aide de points d'arrêt placés à l'intérieur des fichiers TypeScript.</p>
+<p>Voici comment il est possible de déboguer le projet à l'aide de différents environnements de développement.</p>
+<h3 id="d%C3%A9bogage-avec-visual-studio-code">Débogage avec Visual Studio Code</h3>
+<p>VS Code offre la possibilité d'ajouter des configurations d'exécution à l'aide d'un fichier local. Ce fichier doit être nommé <code>launch.json</code> et être placé dans un dossier nommé <code>.vscode</code> à la racine du projet.</p>
+<p>On peut utiliser ce fichier afin de créer des configurations d'exécution de débogage pour le projet. Un exemple de contenu pour ce fichier pourrait être :</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,
+    <span class="hljs-attr">"configurations"</span>: [
+        {
+            <span class="hljs-attr">"command"</span>: <span class="hljs-string">"npm start"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Debug"</span>,
+            <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"node-terminal"</span>
+        },
+        {
+            <span class="hljs-attr">"command"</span>: <span class="hljs-string">"npm run start:watch"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Debug:Watch"</span>,
+            <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"node-terminal"</span>
+        }
+    ]
+}
+</div></code></pre>
+<p>Le lien suivant présente les subtilités de l'utilisation du fichier <code>launch.json</code> de VS Code dans le cadre d'un projet NodeJS : <a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">https://code.visualstudio.com/docs/nodejs/nodejs-debugging</a></p>
+<p>Les configurations créées dans ce fichier peuvent ensuite être lancées à partir de l'onglet « Run » de la barre de régions à gauche de VS Code.</p>
+<p>Sinon, il est possible d'attacher le débogueur de VS Code à une nouvelle exécution du projet sans avoir à créer un fichier <code>launch.json</code>. Il suffit de se rendre sur le fichier <code>package.json</code> et de cliquer sur le bouton « Debug » qui apparaît au-dessus de la section « Script ».</p>
+<p>Une fois le débogueur attaché par l'une ou l'autre des méthodes présentées ci-dessus, l'exécution du code cessera lors de la rencontre d'un point d'arrêt sur un fichier TypeScript et il sera possible d'inspecter la valeur des variables visibles.</p>
+<p>Pour plus d'informations au sujet de l'utilisation des breakpoints dans VS Code, voir <a href="https://code.visualstudio.com/docs/editor/debugging#_breakpoints">https://code.visualstudio.com/docs/editor/debugging#_breakpoints</a></p>
+<h3 id="d%C3%A9bogage-avec-jetbrains-webstorm">Débogage avec JetBrains WebStorm</h3>
+<p>Les mêmes instructions présentées dans cette section peuvent être utilisées pour déboguer le projet à partir d'un autre environnement JetBrains (comme IntelliJ) lorsque les plug-ins nécessaires sont installés.</p>
+<p>Dans WebStorm, il est possible de créer une configuration d'exécution à l'aide de la liste déroulante à côté du bouton d'exécution « Run ». Pour ce projet, il est nécessaire de créer une configuration de type « npm » et de lui associer la commande « run » ainsi que le script « start » ou « start:watch ».</p>
+<p>Le lien suivant présente les subtilités de cette configuration avec plus de détails : <a href="https://www.jetbrains.com/help/webstorm/run-debug-configuration-npm.html">https://www.jetbrains.com/help/webstorm/run-debug-configuration-npm.html</a></p>
+<p>Les configurations ainsi créées peuvent ensuite être lancées en mode débogage en cliquant sur le bouton « Debug » à droite du bouton « Start ».</p>
+<p>Sinon, il est possible d'attacher le débogueur de WebStorm à une nouvelle exécution du projet sans avoir à créer une nouvelle configuration d'exécution. Il suffit de se rendre sur le fichier <code>package.json</code> et de cliquer sur le bouton en forme de triangle vert à côté des scripts « start » ou « start:watch » et de sélectionner l'option « Debug ».</p>
+<p>Une fois le débogueur attaché par l'une ou l'autre des méthodes présentées ci-dessus, l'exécution du code cessera lors de la rencontre d'un point d'arrêt sur un fichier TypeScript et il sera possible d'inspecter la valeur des variables visibles.</p>
+<p>Pour plus d'informations au sujet de l'utilisation des breakpoints dans WebStorm, voir <a href="https://www.jetbrains.com/help/webstorm/using-breakpoints.html">https://www.jetbrains.com/help/webstorm/using-breakpoints.html</a></p>
+  </p>
+  </details>
+<h2 id="couplage-souhaitable-entre-la-couche-pr%C3%A9sentation-et-la-couche-domaine">Couplage souhaitable entre la couche Présentation et la couche Domaine</h2>
+<p>Dans un design favorisant la maintenabilité, on évite que la couche Présentation ait la responsabilité de gérer les évènements système (opérations système). Larman présente dans son livre un exemple avec un JFrame (en Java Swing) à la figure F16.24. On l'adapte ici au contexte d'un service Web dans le framework Express (Node.js):</p>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/figure-f16.24-web.puml" alt="Diagramme de séparation des couches avec une opération système envoyée au contrôleur GRASP"></p>
+<p>Dans la figure ci-dessus, l'objet <code>:JeuDeDes</code> (qui est un objet en dehors de la couche présentation) reçoit l'opération système <code>demarrerJeu(nom)</code> selon le principe GRASP Contrôleur. Ce squelette respecte cette séparation.</p>
+<p>Voici la même figure, mais sous forme de diagramme de séquence avec l'acteur. On y voit tous les détails sordides de l'implémentation avec Node Express. <strong>Notez que cette figure est présentée pour faciliter la compréhension seulement. On ne produit pas ce genre de diagramme dans la méthodologie</strong>.</p>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/dss-details-demarrerJeu.puml" alt="Une opération système du DSS est envoyée par la couche présentation et reçue par un objet (le contrôleur GRASP) dans la couche domaine"></p>
+<h2 id="artefacts-danalyse-et-de-conception">Artefacts d'analyse et de conception</h2>
+<h3 id="cas-dutilisation">Cas d'utilisation</h3>
+<h4 id="jouer-aux-d%C3%A9s">Jouer aux dés</h4>
+<ol>
+<li>Le Joueur demande à démarrer le jeu en s'identifiant.</li>
+<li>Le Joueur demande à lancer les dés.</li>
+<li>Le Système affiche le nom du joueur et le résultat de la partie, ainsi que le nombre de parties et le nombre de fois que le Joueur a gagné. Pour un lancer, si le total est égal à sept, le Joueur a gagné. Dans tous les autres cas, il a perdu.</li>
+</ol>
+<p><em>Le Joueur répète l'étape 3 jusqu'à ce qu'il ait fini.</em></p>
+<ol start="4">
+<li>Le Joueur demande à terminer le jeu.</li>
+<li><s>Le Système affiche un tableau de bord avec les noms des joueurs et le ratio des parties gagnées (nombre de fois gagné / nombre de lancers).</s></li>
+</ol>
+<h4 id="red%C3%A9marrer">Redémarrer</h4>
+<ol>
+<li>Le Joueur demande à redémarrer l'application.</li>
+<li>Le Système termine tous les jeux en cours et redémarre l'application.</li>
+</ol>
+<h3 id="diagramme-de-cas-dutilisation">Diagramme de cas d'utilisation</h3>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/cc-probitaille/laboratoire-0-ralphgabriel04/refs/heads/master/docs/modeles/dcu.puml" alt="Diagramme de cas d'utilisation"></p>
+<h3 id="mod%C3%A8le-du-domaine">Modèle du domaine</h3>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/mdd.puml" alt="Diagramme de classe du Modèle du domaine"></p>
+<h3 id="diagramme-de-s%C3%A9quence-syst%C3%A8me-dss">Diagramme de séquence système (DSS)</h3>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/dss-jouer.puml" alt="Diagramme de séquence système"></p>
+<h3 id="contrats-dop%C3%A9ration-et-r%C3%A9alisations-de-cas-dutilisation-rdcu">Contrats d'opération et Réalisations de cas d'utilisation (RDCU)</h3>
+<h4 id="op%C3%A9ration-d%C3%A9marrerjeunomstring">Opération: <code>démarrerJeu(nom:String)</code></h4>
+<p><strong>Postconditions</strong></p>
+<ul>
+<li>Une instance j de Joueur a été créée</li>
+<li>j.nom est devenu nom</li>
+<li>j a été associé à JeuDeDes</li>
+</ul>
+<p><strong>RDCU</strong></p>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/rdcu-demarrerJeu.puml" alt="Diagramme de séquence, demarrerJeu"></p>
+<h4 id="op%C3%A9ration-jouernomstring">Opération: <code>jouer(nom:String)</code></h4>
+<p><strong>Postconditions</strong></p>
+<ul>
+<li>d1.valeur est devenue un nombre entier aléatoire entre 1 et 6</li>
+<li>d2.valeur est devenue un nombre entier aléatoire entre 1 et 6</li>
+<li>j.nbLancers a été incrémenté sur une base de correspondance avec nom</li>
+<li>j.nbLancersGagnés a été incrémenté si la totale de d1.valeur et d2.valeur est égale à 7</li>
+</ul>
+<p><strong>RDCU</strong></p>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/rdcu-jouer.puml" alt="Diagramme de séquence, jouer"></p>
+<h4 id="op%C3%A9ration-terminerjeunomstring">Opération: <code>terminerJeu(nom:String)</code></h4>
+<p><strong>Postconditions</strong></p>
+<ul>
+<li>L'instance j de Joueur a été supprimée sur une base de correspondance avec nom</li>
+</ul>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/rdcu-terminerJeu.puml" alt="Diagramme de séquence, terminerJeu"></p>
+<h3 id="diagramme-de-classes-logicielles">Diagramme de classes logicielles.</h3>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;fmt=svg&amp;src=https://raw.githubusercontent.com/cc-probitaille/laboratoire-0-ralphgabriel04/refs/heads/master/docs/modeles/App.puml" alt="Diagramme de classes logicielles">
+<a href="../README.md">README.md</a></p>
+
+</body>
+</html>
