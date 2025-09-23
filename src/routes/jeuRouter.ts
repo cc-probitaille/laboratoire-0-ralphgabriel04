@@ -75,6 +75,14 @@ export class JeuRouter {
       this._errorCode500(error, req, res);
     }
   }
+  public joueurs(req: Request, res: Response, next: NextFunction) {
+    try {
+      const joueurs = this._controleurJeu.joueurs;
+      res.status(200).send(JSON.parse(joueurs));
+    } catch (error) {
+      this._errorCode500(error, req, res);
+    }
+  }
 
   private _errorCode500(error: any, req: Request, res: Response<any, Record<string, any>>) {
     req.flash('error', error.message);
@@ -105,15 +113,39 @@ export class JeuRouter {
       this._errorCode500(error, req, res);
     }
   }
+  /**
+    * redémarrer le jeu
+  */
+  public redemarrerJeu(req: Request, res: Response, next: NextFunction) {
+    try {
+      // Invoquer l'opération système (du DSS) dans le contrôleur GRASP
+      const resultat = this._controleurJeu.redemarrerJeu();
+      const resultatObj = JSON.parse(resultat);
+
+      // flash : notifier que l'application redémarre
+      req.flash('info', 'L’application redémarre...');
+
+      res.status(200)
+        .send({
+          message: 'Success',
+          status: res.status,
+          resultat: resultatObj
+        });
+    } catch (error) {
+      this._errorCode500(error, req, res);
+    }
+  }
 
   /**
      * Take each handler, and attach to one of the Express.Router's
      * endpoints.
      */
   init() {
-    this._router.post('/demarrerJeu', this.demarrerJeu.bind(this)); // pour .bind voir https://stackoverflow.com/a/15605064/1168342
-    this._router.get('/jouer/:nom', this.jouer.bind(this)); // pour .bind voir https://stackoverflow.com/a/15605064/1168342
-    this._router.get('/terminerJeu/:nom', this.terminerJeu.bind(this)); // pour .bind voir https://stackoverflow.com/a/15605064/1168342
+    this._router.post('/demarrerJeu', this.demarrerJeu.bind(this));
+    this._router.get('/jouer/:nom', this.jouer.bind(this));
+    this._router.get('/joueurs', this.joueurs.bind(this));
+    this._router.get('/terminerJeu/:nom', this.terminerJeu.bind(this));
+    this._router.get('/redemarrerJeu', this.redemarrerJeu.bind(this)); // ✅ nouvelle route
   }
 
 }

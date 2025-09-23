@@ -20,6 +20,39 @@ export class JeuDeDes {
     /**
      *  opérations systèmes (du DSS), responsabilités données aux contrôleur GRASP
      */
+    public redemarrerJeu(): string {
+        // Postcondition : suppression de tous les joueurs
+        this._joueurs.clear();
+
+        // Introduire un troisième dé
+        const _d3 = new De();
+
+        // Brasser les dés
+        this._d1.brasser();
+        this._d2.brasser();
+        _d3.brasser();
+
+        const v1 = this._d1.valeur;
+        const v2 = this._d2.valeur;
+        const v3 = _d3.valeur;
+
+        // Somme des 3 dés
+        const somme = v1 + v2 + v3;
+
+        // Nouvelle règle de victoire : somme <= 10
+        const gagne = somme <= 10;
+
+        const resultat = {
+            v1: v1,
+            v2: v2,
+            v3: v3,
+            somme: somme,
+            message: `Vous avez ${(gagne ? "gagné!!!" : "perdu.")}`
+        };
+
+        // Retourner JSON
+        return JSON.stringify(resultat);
+    }   
 
     public demarrerJeu(nom: string): string {
 

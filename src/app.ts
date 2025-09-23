@@ -59,17 +59,32 @@ class App {
         });
     });
 
-    // Route pour classement (stats)
-    router.get('/stats', (req, res, next) => {
-      res.render('stats',
-        // passer objet au gabarit (template) Pug
-        {
-          title: `${titreBase}`,
-          user: user,
-          // créer nouveau tableau de joueurs qui est trié par ratio
-          joueurs: JSON.parse(jeuRoutes.controleurJeu.joueurs)
-        });
+  // Route pour classement (stats)
+  router.get('/stats', (req, res, next) => {
+    const joueurs: Array<any> = JSON.parse(jeuRoutes.controleurJeu.joueurs);
+
+   
+    const joueursAvecRatio = joueurs.map(j => {
+      const lancers = Number(j.lancers) || 0;
+      const lancersGagnes = Number(j.lancersGagnes) || 0;
+
+      return {
+        ...j,
+        ratio: lancers > 0 ? lancersGagnes / lancers : 0
+      };
     });
+
+    // trier par ratio décroissant
+    joueursAvecRatio.sort((a, b) => b.ratio - a.ratio);
+
+    res.render('stats',
+      {
+        title: `${titreBase}`,
+        user: user,
+        joueurs: joueursAvecRatio
+      });
+  });
+
 
     // Route to login
     router.get('/signin', async function (req, res) {
