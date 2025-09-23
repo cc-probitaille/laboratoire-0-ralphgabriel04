@@ -13,4 +13,15 @@ Plus tard dans le semestre, **si votre équipe porte un manque de performance à
 
 Mettez votre réponse (environ 300 mots) ci-dessous:
 
+En lisant le texte Faire face aux parasites et aux mollassons dans une équipe, j’ai pu reconnaître certaines situations que j'ai personnellement vécues dans mes propres travaux d’équipe. L’auteur a très bien décrit comment certains comportements problématiques, comme ceux des « parasites » ou des « mollassons », finissent par prendre l’énergie et l’équilibre du groupe si on ne réagit pas assez tôt.
+
+Par exemple, je me souviens d’un projet où un coéquipier, un peu comme « Jack » ne participait presque jamais. Il manquait les rencontres et, quand il remettait quelque chose, c’était mal fait et inutilisable. Comme le texte le souligne, mon équipe et moi avons « absorbé » ses manquements : au lieu de confronter la situation directement, nous avons fait son travail pour éviter d’avoir une mauvaise note. Sur le coup, cela semblait la solution la plus simple, mais à long terme, cela a créé beaucoup de frustration et un sentiment d’injustice.
+
+J’ai aussi travaillé avec des « mollassons », comme « Henry ». Ces personnes ne sabotent pas volontairement, mais elles font le strict minimum. Dans mon cas, cela se traduisait par des retards constants et une contribution super flu. Cela ne nuisait pas autant que le parasite, mais cela obligeait le reste de l’équipe à compenser. En lisant le texte, j’ai réalisé que je m’étais souvent accepter ce comportement, au lieu de fixer des attentes claires dès le départ.
+
+Ce que je retiens surtout avec ce texte, c’est l’importance de mettre des limites rapidement. Barbara Oakley conseille de documenter les communications, de refuser d’absorber un travail mal fait et de faire intervenir un responsable au besoin. J’aurais aimé appliquer ces stratégies plus tôt, car elles évitent de tomber dans le piège du « martyr » qui fait tout.
+
+Je pense que ces apprentissages me serviront bien pas seulement dans mes études, mais aussi dans un futur emploi, je sais que je rencontrerai encore des collègues qui ressemblent à Jack ou Henry. Je veux donc apprendre à reconnaître ces dynamiques et à agir tôt, pour protéger non seulement mes résultats, mais aussi ma motivation et mon équilibre.
+
+
 ---
