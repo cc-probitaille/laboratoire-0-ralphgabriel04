@@ -3,8 +3,8 @@
 - <nomComplet1>Ralph Christian Gabriel</nomComplet1>
 - <courriel1>ralph-christian.gabriel.1@ens.etsmtl.ca
 </courriel1>
-- <codeMoodle1>AU53390</codeMoodle1>
-- <githubAccount1>ralphgabriel04</githubAccount1>
+-<codeMoodle1>AU53390</codeMoodle1>
+-<githubAccount1>ralphgabriel04</githubAccount1>
 
 # Squelette pour un API simple dans Node, Express et TypeScript
 
